@@ -21,3 +21,35 @@ stages:
       hash: md5
       md5: 7487f0004defdc93bea0721804fc45f3
       size: 170416
+  train:
+    cmd: python scripts/model_scripts/train.py
+    deps:
+    - path: data/prepared/train.csv
+      hash: md5
+      md5: 7487f0004defdc93bea0721804fc45f3
+      size: 170416
+    - path: scripts/model_scripts/train.py
+      hash: md5
+      md5: c547b5d536ff6676c6a0e7b61857c7a8
+      size: 1331
+    outs:
+    - path: model/model.joblib
+      hash: md5
+      md5: 4d1d3b98a6a716423ee6cf939a5a633a
+      size: 241148
+  evaluate:
+    cmd: python scripts/model_scripts/evaluate.py
+    deps:
+    - path: model/model.joblib
+      hash: md5
+      md5: 4d1d3b98a6a716423ee6cf939a5a633a
+      size: 241148
+    - path: scripts/model_scripts/evaluate.py
+      hash: md5
+      md5: fe790bdd11be3b83ff81879dd2470917
+      size: 652
+    outs:
+    - path: metrics/accuracy.json
+      hash: md5
+      md5: e154a849b32832cdd28fcb654ae1e5b3
+      size: 32
