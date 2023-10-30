@@ -8,17 +8,17 @@ stages:
     - data/prepared/test.csv
     - data/prepared/train.csv
   train:
-    cmd: python sсripts/model_scripts/train.py
+    cmd: python scripts/model_scripts/train.py
     deps:
     - data/prepared/train.csv
-    - sсripts/model_scripts/train.py
+    - scripts/model_scripts/train.py
     outs:
     - model/model.joblib
   evaluate:
-    cmd: python sсripts/model_scripts/evaluate.py
+    cmd: python scripts/model_scripts/evaluate.py
     deps:
     - model/model.joblib
-    - sсripts/model_scripts/evaluate.py
+    - scripts/model_scripts/evaluate.py
     metrics:
     - metrics/accuracy.json:
         cache: false
