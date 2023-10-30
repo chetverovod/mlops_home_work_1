@@ -1,9 +1,9 @@
 stages:
   prepare:
-    cmd: python /scripts/data_scripts/prepare.py
+    cmd: python scripts/data_scripts/prepare.py
     deps:
-    - /scripts/data_scripts/prepare.py
     - data/raw
+    - scripts/data_scripts/prepare.py
     outs:
     - data/prepared/test.csv
     - data/prepared/train.csv
